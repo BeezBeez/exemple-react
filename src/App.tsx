@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { View } from './components/Containers';
+import { Counter } from './components/Counter';
 
 const Page = styled(View)`
   align-items: center;
@@ -29,6 +30,7 @@ function App() {
       <Container>
         <h3>Chibres counter</h3>
         <h5>On-chain application counting number of maxi chibrax</h5>
+        <Counter/>
       </Container>
     </Page>
   );
