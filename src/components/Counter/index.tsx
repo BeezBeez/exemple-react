@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Buttons';
 import { View } from '../Containers';
@@ -21,18 +21,28 @@ const CounterContainer = styled(View)`
         min-width: 3vw;
         min-height: 3vw;
     }
-`
+`;
 
 export const Counter: React.FC = () => {
+    const [count, setCount] = useState(0);
+
+    const decrement = () => {
+        setCount(count - 1);
+    }
+
+    const increment = () => {
+        setCount(count + 1);
+    }
+
     return (
         <CounterContainer>
-            <Button variation='danger'>
+            <Button onClick={decrement} variation='danger'>
                 <Minus />
             </Button>
-            <h5>0</h5>
-            <Button variation='success'>
+            <h5>{count}</h5>
+            <Button onClick={increment} variation='success'>
                 <Plus />
             </Button>
-        </CounterContainer>
+        </CounterContainer >
     );
 };
