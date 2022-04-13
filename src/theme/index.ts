@@ -1,5 +1,11 @@
 import { ThemeColor } from "./types";
 
+export const setOpacity = (color: string, newOpacity: number) => {
+    let xColor = color.split(',');
+    xColor[3] = `${newOpacity})`;
+    return xColor.join(',');
+} 
+
 export const defaultTheme: {[key: string]: ThemeColor} = {
     primary: {
         background: 'rgba(0, 106, 255, 0.9)',

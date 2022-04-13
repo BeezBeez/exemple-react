@@ -13,6 +13,10 @@ const CounterContainer = styled(View)`
     border-radius: 12px;
     margin: 16px 0px;
 
+    & ${Button} {
+        padding: 0;
+    }
+
     & h5 {
         display: flex;
         align-items: center;
@@ -23,15 +27,19 @@ const CounterContainer = styled(View)`
     }
 `;
 
-export const Counter: React.FC = () => {
+export const Counter: React.FC<{min: number, max: number}> = (props) => {
     const [count, setCount] = useState(0);
 
     const decrement = () => {
-        setCount(count - 1);
+        if (count - 1 >= props.min) {
+            setCount(count - 1);
+        }
     }
 
     const increment = () => {
-        setCount(count + 1);
+        if (count + 1 <= props.max) {
+            setCount(count + 1);
+        }
     }
 
     return (
